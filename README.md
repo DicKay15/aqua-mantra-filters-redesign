@@ -12,9 +12,16 @@ A complete multi-page redesign concept for [Aqua Mantra Filters](https://aquaman
 - Accessible navigation, responsive layouts, form validation/success/error states, loading skeletons and reduced-motion fallbacks.
 - Full discovery, IA, PRD, SEO, media, checklist, feedback and launch-audit documentation in [`docs/`](docs/).
 
-## Live review build
+## Live review builds
 
-**https://aqua-mantra-redesign.pages.dev** (Cloudflare Pages, `noindex`, not approved for public launch)
+Both versions are hosted so they can be compared side by side. Neither is approved for public launch; both are `noindex` with `Disallow: /`.
+
+| Version | URL | Git |
+|---|---|---|
+| **Current** (rebuilt hero and interaction layer) | https://aqua-mantra-redesign.pages.dev | `main` |
+| **Before this pass** (as first delivered) | https://aqua-mantra-v1.pages.dev | commit `1d27f6e` |
+
+The `v1` deployment is that commit built as-is. The only differences from the commit are build plumbing needed to produce a static export (`output: "export"`, `generateStaticParams`, `force-static` on the two metadata routes, and its own `siteUrl`). No design, copy or markup was changed.
 
 ```bash
 scripts/deploy-static.sh          # build and publish

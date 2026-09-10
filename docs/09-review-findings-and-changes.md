@@ -70,7 +70,12 @@ Also: `BreadcrumbList` schema moved inside the `Breadcrumbs` component so it can
 
 ## Hosting
 
-The stakeholder-review build is on Cloudflare Pages at **https://aqua-mantra-redesign.pages.dev**. `scripts/deploy-static.sh` builds and publishes it.
+Both versions are on Cloudflare Pages so the change can be judged rather than described:
+
+- **Current:** https://aqua-mantra-redesign.pages.dev (`scripts/deploy-static.sh` builds and publishes it)
+- **Before this pass:** https://aqua-mantra-v1.pages.dev (commit `1d27f6e`, built as-is apart from static-export plumbing)
+
+A quick way to see the most serious defect: `curl -s https://aqua-mantra-v1.pages.dev/ | grep -o 'opacity:0' | wc -l` returns 8. The same command against the current build returns 0.
 
 GitHub Pages was the original request and is not available: the repository is private and the account's plan does not serve Pages from private repositories. Making it public would put the client's logo, phone number, email, address and 24 installation photographs on a public URL, which is the client's call and not ours.
 
