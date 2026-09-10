@@ -6,11 +6,24 @@ A complete multi-page redesign concept for [Aqua Mantra Filters](https://aquaman
 
 - All 11 supplied current-site routes, plus a Guides hub, four articles, Privacy, Terms and a custom 404.
 - Original “engineered calm” visual system using the existing Aqua Mantra logo and blue recognition.
-- Lazy-loaded Three.js water hero, GSAP/SVG filtration flow and Framer Motion interaction states.
+- Lazy-loaded Three.js caustic hero, a GSAP-driven SVG cross-section of the three-stage housing, and an accessible gallery lightbox.
 - Four planned/generated editorial assets plus 24 metadata-stripped authentic installation photographs.
 - Unique route metadata, canonical URLs, sitemap, review-site robots controls and supported structured data.
-- Accessible navigation, responsive layouts, form validation/success/error states and reduced-motion fallbacks.
+- Accessible navigation, responsive layouts, form validation/success/error states, loading skeletons and reduced-motion fallbacks.
 - Full discovery, IA, PRD, SEO, media, checklist, feedback and launch-audit documentation in [`docs/`](docs/).
+
+## Live review build
+
+**https://aqua-mantra-redesign.pages.dev** (Cloudflare Pages, `noindex`, not approved for public launch)
+
+```bash
+scripts/deploy-static.sh          # build and publish
+SITE_LIVE=1 scripts/deploy-static.sh   # same build, indexable
+```
+
+The deployable artifact is a static export: `STATIC_EXPORT=1 npx next build` writes `out/`. `npm run dev` still uses the bundled vinext dev server.
+
+GitHub Pages was requested but cannot serve this repository: it is private and the account's plan does not include Pages for private repositories. Publishing there would require making the repository public, which would expose the client's contact details and installation photographs.
 
 ## Review-build safeguards
 
@@ -30,6 +43,7 @@ A complete multi-page redesign concept for [Aqua Mantra Filters](https://aquaman
 7. [`06-implementation-plan-checklist.md`](docs/06-implementation-plan-checklist.md)
 8. [`07-feedback-log.md`](docs/07-feedback-log.md)
 9. [`08-preflight-report.md`](docs/08-preflight-report.md)
+10. [`09-review-findings-and-changes.md`](docs/09-review-findings-and-changes.md)
 
 ## Local review
 

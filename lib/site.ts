@@ -1,4 +1,4 @@
-export const siteUrl = "https://aqua-mantra-filters-redesign.nitiaisolutions.chatgpt.site";
+export const siteUrl = "https://aqua-mantra-redesign.pages.dev";
 
 export const contact = {
   phoneDisplay: "0450 864 647",
@@ -30,6 +30,52 @@ export const routes = [
   "/terms",
 ];
 
+/**
+ * The four concerns the site is organised around. The hero picker, the homepage
+ * concern list and the consultation form all read from this one list so the
+ * visitor's answer survives the journey to the form.
+ */
+export const concerns = [
+  {
+    id: "taste",
+    n: "01",
+    label: "Taste and odour",
+    short: "Taste and odour",
+    answer: "Then the question is which carbon stage has verified evidence behind it, and whether the whole house needs treating or one tap does.",
+    detail:
+      "We ask what you notice, when you notice it, and at which taps. That points to whether a carbon stage is the right answer for the whole property or whether one outlet is doing the complaining.",
+  },
+  {
+    id: "sediment",
+    n: "02",
+    label: "Visible sediment",
+    short: "Visible sediment",
+    answer: "Then we start at the inlet: what is entering the property, and whether a pleated first stage is doing enough on its own.",
+    detail:
+      "We look at the water source, the age of the service line and what the meter side of the property looks like, because a pleated stage that is sized wrong just blocks more often.",
+  },
+  {
+    id: "scale",
+    n: "03",
+    label: "Scale and hardness",
+    short: "Scale and hardness",
+    answer: "Then the first job is separating scale management from true softening. They are different processes with different outcomes.",
+    detail:
+      "We check what you actually want to change: the marks on glassware and fittings, or the water chemistry itself. Those two goals lead to different equipment and different running costs.",
+  },
+  {
+    id: "every-tap",
+    n: "04",
+    label: "Every tap in the house",
+    short: "Whole-home coverage",
+    answer: "Then it is a flow, space and maintenance question before it is a product question. Household demand sets the system size.",
+    detail:
+      "We size around the number of bathrooms, peak simultaneous demand and where the system can physically sit, then work back to what fits the space and the maintenance you are willing to do.",
+  },
+] as const;
+
+export type ConcernId = (typeof concerns)[number]["id"];
+
 export type LocationKey = "perth" | "sydney" | "adelaide";
 
 export const locations: Record<LocationKey, {
@@ -55,7 +101,7 @@ export const locations: Record<LocationKey, {
       { title: "Scale", text: "Separate scale management from hardness removal before choosing equipment." },
       { title: "Whole-home use", text: "Plan flow and placement for taps, showers and appliances across the property." },
     ],
-    guide: "/guides/perth-hard-water-filtration-vs-softening/",
+    guide: "/guides/perth-hard-water-filtration-vs-softening",
   },
   sydney: {
     city: "Sydney",
@@ -70,7 +116,7 @@ export const locations: Record<LocationKey, {
       { title: "Sediment", text: "Discuss whether a pleated first stage suits the visible concern and inlet conditions." },
       { title: "Maintenance", text: "Choose a setup with clear cartridge compatibility and an aftercare plan." },
     ],
-    guide: "/guides/sydney-tap-water-chlorine-taste-filtration/",
+    guide: "/guides/sydney-tap-water-chlorine-taste-filtration",
   },
   adelaide: {
     city: "Adelaide",
@@ -85,7 +131,7 @@ export const locations: Record<LocationKey, {
       { title: "Scale context", text: "Clarify whether the goal is scale management or actual hardness removal." },
       { title: "Ongoing support", text: "Plan replacement filters and servicing as part of the initial recommendation." },
     ],
-    guide: "/guides/adelaide-water-quality-home-filtration-guide/",
+    guide: "/guides/adelaide-water-quality-home-filtration-guide",
   },
 };
 
@@ -126,6 +172,14 @@ export const reviews = [
   { quote: "Helpful service without the hard sell.", theme: "Service" },
 ];
 
-export const videoUrls = Array.from({ length: 5 }, (_, index) =>
-  `https://aquamantrafilters.com.au/wp-content/uploads/2026/02/aquamantrafilters${index + 1}.mp4`
+/**
+ * The distinct video files published on the current Aqua Mantra website.
+ *
+ * File 4 is deliberately excluded. `aquamantrafilters4.mp4` and
+ * `aquamantrafilters3.mp4` are the same recording: both are 8,193,996 bytes and
+ * the leading two megabytes hash identically. Publishing both would present one
+ * clip as two separate pieces of evidence, which the brief does not allow.
+ */
+export const videoUrls = [1, 2, 3, 5].map(
+  (n) => `https://aquamantrafilters.com.au/wp-content/uploads/2026/02/aquamantrafilters${n}.mp4`
 );

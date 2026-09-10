@@ -40,6 +40,7 @@ The redesign is complete and the implemented review experience passes the availa
 - `npm run build`: pass after dependency patches.
 - Production dependency audit: zero known vulnerabilities.
 - All 18 content/legal routes: title, description, canonical, one H1, main landmark, footer and no horizontal overflow.
+- **Correction, 10 September 2026:** this report originally recorded that "all required final routes returned 200". Requested with the trailing slash the source files used at the time, 17 of 18 returned a 308 redirect first. Internal hrefs are now slash-free throughout and match the canonicals and the sitemap. See `09-review-findings-and-changes.md`.
 - Sitemap and robots endpoints: successful.
 - Invalid-route response: 404.
 - Mobile menu: accessible expanded/collapsed state and complete navigation.

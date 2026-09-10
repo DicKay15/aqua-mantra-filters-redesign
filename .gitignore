@@ -47,3 +47,10 @@ next-env.d.ts
 /.codex/
 /outputs/
 /work/
+
+# Static export output
+/out/
+
+# Local editor/preview config and TS build cache
+/.claude/
+tsconfig.tsbuildinfo
