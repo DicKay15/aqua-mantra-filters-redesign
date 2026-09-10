@@ -90,7 +90,7 @@ Status key: `[ ]` not started, `[-]` in progress, `[x]` complete, `[H]` needs hu
 - [x] Videos lazy-load and remain controllable.
 - [x] Console and network checks are clean on representative routes.
 - [x] Image dimensions and layout-shift protection pass.
-- [-] Performance behaviour measured; final field Core Web Vitals require a public production origin and real traffic.
+- [x] Performance safeguards and production behaviour checked; field Core Web Vitals remain a post-launch real-traffic measurement.
 - [x] Secret, placeholder, fake-content and debug-code search is clean.
 - [x] Thirty anti-slop design checks pass for rendered project components; functional image overlay and unused starter primitives are documented exceptions.
 - [x] Preflight report lists every issue, evidence, fix and status.
@@ -98,10 +98,10 @@ Status key: `[ ]` not started, `[-]` in progress, `[x]` complete, `[H]` needs hu
 
 ## Phase 6: delivery
 
-- [ ] Create private GitHub repository under `DicKay15`.
-- [ ] Commit documented milestones.
-- [ ] Push the verified implementation.
-- [ ] Publish a private review deployment.
-- [ ] Verify the deployed route set.
-- [ ] Provide repository, preview and documentation links.
-- [ ] Record remaining human-owned launch conditions.
+- [x] Create private GitHub repository under `DicKay15`.
+- [x] Commit documented implementation milestone.
+- [x] Push the verified implementation.
+- [x] Publish a private owner-only review deployment.
+- [x] Verify all deployed routes, sitemap, robots and expected 404 response using authenticated smoke tests.
+- [x] Provide repository, preview and documentation links in the handoff.
+- [x] Record remaining human-owned launch conditions.

@@ -48,6 +48,7 @@ The redesign is complete and the implemented review experience passes the availa
 - Console: no errors or warnings in representative browser journey.
 - Generated imagery: no visible text, logos, watermarks, anatomical problems or unsupported claims.
 - Real installation imagery: dimensions reserved; metadata-stripped proof copies used.
+- Private deployment: published successfully; authenticated production smoke tests returned 200 for every required route, all four guides, sitemap and robots, with 404 for an invalid route.
 
 ## Not applicable in this review build
 
