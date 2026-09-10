@@ -76,7 +76,7 @@ export function AquaHome() {
             <Link className="button button-primary" href="/contact-us">Ask if it suits my home</Link>
           </div>
           <div className="system-image">
-            <Image src="/images/current/three-stage-filter.jpeg" alt="An Aqua Mantra three-stage whole-house filter housing in its protective enclosure." width={900} height={1200} />
+            <Image src="/images/installations/install-11.jpg" alt="A three-stage Aqua Mantra system on site before fitting: the stainless cover panel standing behind three blue filter housings." width={900} height={1200} />
           </div>
           <div className="replacement-list">
             <span className="index">Replacement filters</span>

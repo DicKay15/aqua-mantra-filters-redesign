@@ -30,10 +30,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-AU">
-      <head>
-        {/* Set before paint so scroll-reveal styles never apply when scripting is off. */}
-        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
-      </head>
       <body>
         <Header />
         {children}

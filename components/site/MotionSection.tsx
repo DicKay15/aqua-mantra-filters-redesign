@@ -13,9 +13,9 @@ type Props = {
 /**
  * Scroll reveal that is safe to server-render.
  *
- * The hidden state lives in CSS behind the `.js` class that layout.tsx sets before
- * paint, so a visitor without JavaScript, or one whose bundle fails, still gets the
- * full page instead of eight empty sections.
+ * The hidden state lives in CSS inside a `scripting: enabled` query, so a visitor
+ * without JavaScript still gets the full page instead of eight empty sections, and
+ * nothing has to be stamped onto the document before hydration.
  */
 export function MotionSection({ children, className, variant = "rise", ...rest }: Props) {
   const ref = useRef<HTMLElement>(null);

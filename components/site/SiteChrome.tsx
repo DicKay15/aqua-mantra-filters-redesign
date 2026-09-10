@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { CaretDown, List, Phone, X } from "@phosphor-icons/react";
 import { contact } from "@/lib/site";
 
@@ -51,7 +51,8 @@ const samePath = (a: string, b: string) => a.replace(/\/+$/, "") === b.replace(/
 function NavMenu({ group, pathname }: { group: NavGroup; pathname: string }) {
   const [open, setOpen] = useState(false);
   const wrapper = useRef<HTMLDivElement>(null);
-  const menuId = useId();
+  // A stable id derived from the label, so server and client always agree.
+  const menuId = `nav-menu-${group.label.toLowerCase()}`;
   const containsCurrent = group.items.some(item => samePath(pathname, item.href));
 
   useEffect(() => {
@@ -140,7 +141,7 @@ export function Header() {
         </div>
         <div className="shell nav-row">
           <Link className="brand" href="/" aria-label="Aqua Mantra Filters home">
-            <Image src="/brand/aqua-mantra-logo.jpg" alt="Aqua Mantra Filters" width={125} height={86} priority />
+            <Image src="/brand/aqua-mantra-logo.png" alt="Aqua Mantra Filters" width={468} height={321} priority />
           </Link>
           <nav className="desktop-nav" aria-label="Primary navigation">
             {primary.map(item => (
@@ -198,7 +199,7 @@ export function Footer() {
     <footer className="site-footer">
       <div className="shell footer-grid">
         <div>
-          <Image src="/brand/aqua-mantra-logo.jpg" alt="Aqua Mantra Filters" width={126} height={87} />
+          <Image src="/brand/aqua-mantra-logo.png" alt="Aqua Mantra Filters" width={468} height={321} />
           <p>Whole-house filtration advice, professional installation and ongoing filter support across Perth, Sydney and Adelaide.</p>
         </div>
         <div>
