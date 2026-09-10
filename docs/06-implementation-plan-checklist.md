@@ -101,7 +101,7 @@ Status key: `[ ]` not started, `[-]` in progress, `[x]` complete, `[H]` needs hu
 - [x] Create private GitHub repository under `DicKay15`.
 - [x] Commit documented implementation milestone.
 - [x] Push the verified implementation.
-- [x] Publish a private owner-only review deployment.
+- [x] Publish a publicly accessible stakeholder-review deployment while retaining `noindex` launch safeguards.
 - [x] Verify all deployed routes, sitemap, robots and expected 404 response using authenticated smoke tests.
 - [x] Provide repository, preview and documentation links in the handoff.
 - [x] Record remaining human-owned launch conditions.

@@ -15,7 +15,7 @@ A complete multi-page redesign concept for [Aqua Mantra Filters](https://aquaman
 ## Review-build safeguards
 
 - The consultation form demonstrates behaviour but sends no data until an approved destination and privacy process are connected.
-- The private review build is `noindex` and disallowed in `robots.txt`.
+- The publicly accessible stakeholder-review build is `noindex` and disallowed in `robots.txt`; it is not approved for search indexing or commercial launch.
 - Certification, licence, product-performance, warranty, legal and city-coverage details remain clearly marked for client verification.
 - Generated lifestyle images are illustrative; real Aqua Mantra installation photos are used as proof.
 

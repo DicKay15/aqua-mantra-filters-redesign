@@ -1,6 +1,6 @@
 # Website preflight report
 
-Verdict: **Ready with conditions for private client review. Not ready for public launch.**
+Verdict: **Ready as a publicly accessible stakeholder-review build. Not ready for indexed commercial launch.**
 
 The redesign is complete and the implemented review experience passes the available route, build, browser, responsive, form, console, SEO, accessibility-code and dependency checks. The remaining blockers are business, evidence and legal inputs that cannot be safely invented in code.
 
@@ -12,7 +12,7 @@ The redesign is complete and the implemented review experience passes the availa
 | Warranty, service coverage and response-time claims are unverified | Medium | Buyers need clear operational expectations | Current pages omit or generalise these details | Client confirms warranty owner, duration, exclusions, areas and response times | Needs human input |
 | Contact form is intentionally disconnected | High | A public form needs an approved destination, privacy process and operational owner | Form clearly states review-only mode and retains no submitted data | Approve destination, server-side validation, spam controls, retention, consent and response process | Needs human input |
 | Review excerpts and video descriptions need source approval | Medium | Proof must remain accurate and attributable | Reviews and videos are explicitly marked as pending verification | Approve exact Google source link, excerpts, names/dates, video titles, captions and transcripts | Needs human input |
-| Public indexation is disabled | Medium | Search engines cannot index the private review build | Global metadata uses `noindex`; robots disallows `/` | Enable index/follow and production robots only after public-launch approval and evidence/legal conditions pass | Needs human input |
+| Public indexation is disabled | Medium | Search engines cannot index the stakeholder-review build | Global metadata uses `noindex`; robots disallows `/` | Enable index/follow and production robots only after public-launch approval and evidence/legal conditions pass | Needs human input |
 | Three.js library is a 512 KB lazy chunk | Low | WebGL can be costly on low-power devices | Build chunk report; module is dynamically imported only by the hero | Keep lazy loading, pixel-ratio cap, offscreen pause and static reduced-motion fallback; validate field data after public launch | Fixed with mitigation |
 
 ## Fixed and verified findings
@@ -60,4 +60,4 @@ The redesign is complete and the implemented review experience passes the availa
 
 ## Launch decision
 
-The implementation is suitable for private client review. Public launch remains blocked until Aqua Mantra supplies and approves the certification, licence, product evidence, warranty, coverage, proof attribution, form/privacy and legal inputs listed above. After those inputs are integrated, re-enable indexation, connect the form, run a final assistive-technology check and repeat the production preflight on the public origin.
+The implementation is suitable for review through its public URL, but is intentionally excluded from search indexing. Indexed commercial launch remains blocked until Aqua Mantra supplies and approves the certification, licence, product evidence, warranty, coverage, proof attribution, form/privacy and legal inputs listed above. After those inputs are integrated, re-enable indexation, connect the form, run a final assistive-technology check and repeat the production preflight.
