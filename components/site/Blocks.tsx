@@ -7,7 +7,7 @@ export function SectionHeading({ eyebrow, title, text }: { eyebrow: string; titl
 }
 
 export function PageHero({ eyebrow, title, intro, image }: { eyebrow: string; title: string; intro: string; image?: string }) {
-  return <section className={`page-hero${image ? " has-image" : ""}`} style={image ? { backgroundImage: `linear-gradient(rgba(5,33,49,.62), rgba(5,33,49,.72)), url(${image})` } : undefined}><div className="shell"><p className="eyebrow light">{eyebrow}</p><h1>{title}</h1><p>{intro}</p></div></section>;
+  return <section className={`page-hero${image ? " has-image" : ""}`} style={image ? { backgroundImage: `url(${image})` } : undefined}><div className="shell"><p className="eyebrow light">{eyebrow}</p><h1>{title}</h1><p>{intro}</p></div></section>;
 }
 
 /**

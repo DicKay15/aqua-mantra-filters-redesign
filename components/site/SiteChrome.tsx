@@ -160,7 +160,7 @@ export function Header() {
             <a className="icon-call" href={contact.phoneHref} aria-label={`Call Aqua Mantra on ${contact.phoneDisplay}`}>
               <Phone size={20} weight="regular" />
             </a>
-            <Link className="button button-primary desktop-cta" href="/contact-us">Book a consultation</Link>
+            <Link className="button button-primary desktop-cta" href="/contact-us">Find my system</Link>
             <button
               className="menu-button"
               type="button"
@@ -187,7 +187,7 @@ export function Header() {
               {item.label}
             </Link>
           ))}
-          <Link className="button button-primary" href="/contact-us" onClick={close}>Book a consultation</Link>
+          <Link className="button button-primary" href="/contact-us" onClick={close}>Find my system</Link>
         </div>
       </nav>
     </>
