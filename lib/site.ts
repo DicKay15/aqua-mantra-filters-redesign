@@ -1,4 +1,4 @@
-export const siteUrl = "https://aqua-mantra-redesign.pages.dev";
+export const siteUrl = "https://aqua-mantra-filters-v2.dhrumil-kherde.workers.dev";
 
 export const contact = {
   phoneDisplay: "0450 864 647",
@@ -180,6 +180,9 @@ export const reviews = [
  * the leading two megabytes hash identically. Publishing both would present one
  * clip as two separate pieces of evidence, which the brief does not allow.
  */
-export const videoUrls = [1, 2, 3, 5].map(
-  (n) => `https://aquamantrafilters.com.au/wp-content/uploads/2026/02/aquamantrafilters${n}.mp4`
-);
+export const videoUrls = [
+  "/videos/installation-prep.mp4",
+  "/videos/property-pipework.mp4",
+  "/videos/completed-system.mp4",
+  "/videos/site-preparation.mp4",
+];

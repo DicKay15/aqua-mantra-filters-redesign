@@ -14,6 +14,7 @@ Use this file as the single source of truth for design, content and implementati
 
 | ID | Date | Source | Area/page | Feedback | Decision/action | Status | Verification |
 |---|---|---|---|---|---|---|---|
+| FB-013 | 2026-09-11 | Dhrumil | Homepage V2 | Rebuild from scratch around Water Analytics' scale and media rhythm; remove the unexplained circle and upper hero layer; use less text, stronger imagery, useful SVG motion, unique sections and authentic or generated media | Created the Water Flow V2 on a separate branch with an interactive whole-home route, single-layer water hero, expanding lifestyle chapter, three-stage system interaction, authentic installation cinema, city switcher, installation rail and compact guides | Resolved | Lint/build/audit pass; all 18 routes 200; hero, stage and city interactions tested in browser; public-host check follows deployment |
 | FB-001 | 2026-09-10 | Dhrumil | Whole project | Redesign every supplied page and miss nothing | All routes are mapped in the PRD and implementation checklist | In progress | Route test matrix before delivery |
 | FB-002 | 2026-09-10 | Dhrumil | Visual direction | Keep the theme and logo; make the site professional and sophisticated | Preserve logo and blue recognition; use “engineered calm” as the original visual thesis | In progress | Visual QA and anti-slop review |
 | FB-003 | 2026-09-10 | Dhrumil | References | Use client-liked sites for working industry elements, not copied design | Benchmark patterns documented separately from original Aqua composition | Resolved | Discovery audit |
@@ -34,4 +35,3 @@ Add the newest entry at the top of the register:
 ```text
 | FB-### | YYYY-MM-DD | Name | Page/area | Exact feedback | Decision/action | Open | Test or review needed |
 ```
-

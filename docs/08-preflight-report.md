@@ -1,5 +1,9 @@
 # Website preflight report
 
+## V2 addendum — 11 September 2026
+
+The Water Flow V2 homepage has passed the available implementation checks and is ready for a separate stakeholder-review deployment. It removes the homepage Three.js dependency and unexplained circular object, keeps one water-caustic hero image layer, uses a meaningful SVG water route, self-hosts four authentic installation films and adds a clearly labelled generated lifestyle sequence. All 18 routes continue to return HTTP 200 locally. Lint, production build and the production dependency audit pass; hero, filter-stage and city controls were exercised in the browser. The commercial-launch blockers below remain unchanged because they require Aqua Mantra's evidence and approval.
+
 Verdict: **Ready as a publicly accessible stakeholder-review build. Not ready for indexed commercial launch.**
 
 The redesign is complete and the implemented review experience passes the available route, build, browser, responsive, form, console, SEO, accessibility-code and dependency checks. The remaining blockers are business, evidence and legal inputs that cannot be safely invented in code.

@@ -1,5 +1,5 @@
-import { AquaHome } from "@/components/site/AquaHome";
+import { AquaHomeV2 } from "@/components/site/AquaHomeV2";
 
 export default function Home() {
-  return <AquaHome />;
+  return <AquaHomeV2 />;
 }
