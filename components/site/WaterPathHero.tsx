@@ -12,6 +12,13 @@ const outlets = [
 
 type Outlet = (typeof outlets)[number]["id"];
 
+const routePaths: Record<Outlet, string> = {
+  kitchen: "M28 376H102C120 376 123 335 148 335H378C382 301 374 239 391 215C405 197 424 202 446 202",
+  shower: "M28 376H102C120 376 123 335 148 335H378C427 335 516 337 551 299C574 274 580 231 580 182",
+  laundry: "M28 376H102C120 376 123 335 148 335H378C407 335 438 342 448 369C452 380 450 393 450 408",
+  garden: "M28 376H102C120 376 123 335 148 335H378C440 335 543 336 580 361C597 372 604 389 604 408",
+};
+
 export function WaterPathHero() {
   const [active, setActive] = useState<Outlet>("kitchen");
   const [interacted, setInteracted] = useState(false);
@@ -64,7 +71,7 @@ export function WaterPathHero() {
             <desc id="water-path-desc">Water enters the property, passes through three filter stages and continues to the kitchen, shower, laundry and garden tap.</desc>
             <path className="house-line flow-draw" pathLength="1" d="M180 410V167L360 62l180 105v243M225 410h270" />
             <path className="pipe-muted flow-draw" pathLength="1" d="M28 376h96" />
-            <path className="pipe-main flow-draw" pathLength="1" d="M28 376h96c28 0 32-41 61-41h193" />
+            <path className="pipe-main flow-draw" pathLength="1" d="M28 376H102C120 376 123 335 148 335H378" />
             <g className="filter-bank" transform="translate(126 297)">
               {[0, 1, 2].map((stage) => (
                 <g className="flow-stage" key={stage} transform={`translate(${stage * 54} 0)`}>
@@ -77,10 +84,21 @@ export function WaterPathHero() {
             <text className="supply-label" x="28" y="356">STREET SUPPLY</text>
             <text className="system-label" x="126" y="288">AQUA MANTRA SYSTEM</text>
 
-            <path className="pipe-branch kitchen" pathLength="1" d="M378 335v-134h68" />
-            <path className="pipe-branch shower" pathLength="1" d="M378 335v-57h202v-96" />
-            <path className="pipe-branch laundry" pathLength="1" d="M378 335h72v73" />
-            <path className="pipe-branch garden" pathLength="1" d="M378 335h228v73" />
+            <path className="pipe-branch kitchen" pathLength="1" d="M378 335C382 301 374 239 391 215C405 197 424 202 446 202" />
+            <path className="pipe-branch shower" pathLength="1" d="M378 335C427 335 516 337 551 299C574 274 580 231 580 182" />
+            <path className="pipe-branch laundry" pathLength="1" d="M378 335C407 335 438 342 448 369C452 380 450 393 450 408" />
+            <path className="pipe-branch garden" pathLength="1" d="M378 335C440 335 543 336 580 361C597 372 604 389 604 408" />
+
+            <g className="travelling-water" key={active} aria-hidden="true">
+              <path id={`active-water-route-${active}`} className="active-water-route" pathLength="1" d={routePaths[active]} />
+              {[0, 1, 2].map((particle) => (
+                <circle className={`water-particle particle-${particle + 1}`} r={particle === 1 ? 4 : 3} key={particle}>
+                  <animateMotion dur="3.2s" begin={`${particle * -1.06}s`} repeatCount="indefinite" rotate="auto">
+                    <mpath href={`#active-water-route-${active}`} />
+                  </animateMotion>
+                </circle>
+              ))}
+            </g>
 
             <g className="outlet kitchen" transform="translate(448 175)">
               <path d="M0 22h34V7h25v16M8 22v23M52 22v23" /><circle cx="29" cy="53" r="4" />
@@ -107,8 +125,8 @@ export function WaterPathHero() {
                 className={active === item.id ? "active" : undefined}
                 aria-pressed={active === item.id}
                 onClick={() => { setActive(item.id); setInteracted(true); }}
-                onPointerEnter={() => setActive(item.id)}
-                onFocus={() => setActive(item.id)}
+                onPointerEnter={() => { setActive(item.id); setInteracted(true); }}
+                onFocus={() => { setActive(item.id); setInteracted(true); }}
               >
                 <span>{item.label}</span><small>{item.note}</small>
               </button>

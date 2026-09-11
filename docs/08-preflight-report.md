@@ -4,6 +4,16 @@
 
 The Water Flow V2 homepage has passed the available implementation checks and is ready for a separate stakeholder-review deployment. It removes the homepage Three.js dependency and unexplained circular object, keeps one water-caustic hero image layer, uses a meaningful SVG water route, self-hosts four authentic installation films and adds a clearly labelled generated lifestyle sequence. All 18 routes continue to return HTTP 200 locally. Lint, production build and the production dependency audit pass; hero, filter-stage and city controls were exercised in the browser. The commercial-launch blockers below remain unchanged because they require Aqua Mantra's evidence and approval.
 
+### Alignment and water-flow retest — 11 September 2026
+
+- Replaced hard-cornered, disconnected-looking pipe segments with continuous cubic curves from street supply through the filter bank to each outlet.
+- Added a short solid-route reveal and three staggered travelling particles; reduced-motion users receive the static route without particles.
+- Normalised the homepage's major visual and text chapters to the same 1,180px desktop grid and 14px mobile edge.
+- Corrected the shared stage-tab collision, mobile cartridge sizing, readout wrapping, oversized media chapters and narrow-screen spacing.
+- Exact Chromium measurements at 390×844, 768×1024, 1024×768 and 1440×900 found no document-level horizontal overflow. Every audited major section had matching left and right edges at all four widths.
+- The hero outlet interaction changed the active route successfully on mobile; the live SVG contained all three motion particles.
+- The deployed build returned HTTP 200 for all 18 content/legal routes and HTTP 404 for an invalid route. Lint, production build and production dependency audit passed with zero known vulnerabilities.
+
 Verdict: **Ready as a publicly accessible stakeholder-review build. Not ready for indexed commercial launch.**
 
 The redesign is complete and the implemented review experience passes the available route, build, browser, responsive, form, console, SEO, accessibility-code and dependency checks. The remaining blockers are business, evidence and legal inputs that cannot be safely invented in code.
@@ -23,6 +33,8 @@ The redesign is complete and the implemented review experience passes the availa
 
 | Issue | Severity | Evidence | Status |
 |---|---|---|---|
+| V2 alignment drift and mobile control collision | High | Exact 390px and 1440px browser measurements show a shared section grid, contained stage controls and no horizontal overflow | Fixed |
+| V2 water path felt segmented and abrupt | Medium | Continuous curved route, route-reveal transition and three travelling particles verified in the deployed DOM | Fixed |
 | Missing semantic page hierarchy | High | Browser audit of 18 routes found exactly one H1 and a main landmark on each | Fixed |
 | Missing titles/descriptions/canonicals | High | Browser audit confirmed unique title, description and self-consistent canonical for all 18 routes | Fixed |
 | Thin or missing route content | Medium | All 11 required routes plus Guides, four articles, Privacy, Terms and 404 render | Fixed |

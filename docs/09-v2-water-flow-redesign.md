@@ -15,6 +15,16 @@
 - Create distinctive sections rather than repeating cards and standard split layouts.
 - Continue testing, fixing and retesting until the result is stable.
 
+## Alignment and motion repair
+
+The 11 September follow-up addressed three underlying issues instead of applying isolated offsets:
+
+1. The water path now uses one continuous curved route from the street supply, through all three cartridges and into the selected outlet. A restrained reveal and three staggered particles make direction and continuity immediately legible.
+2. The editorial panels, installation cinema, content sections, guide rail and footer now share the same 1,180px desktop grid and 14px mobile edge.
+3. Desktop minimum heights no longer leak into smaller screens. Mobile tabs stack, cartridges flex within their panel, readout copy wraps and tall media chapters are capped.
+
+The browser QA script at `scripts/layout-qa.mjs` measures 390×844, 768×1024, 1024×768 and 1440×900 viewports against a supplied Chrome DevTools endpoint, checks section bounds and overflow, exercises an outlet control, scrolls through reveal states and records screenshots for visual review.
+
 ## Reference analysis
 
 Water Analytics works because it treats the homepage as a sequence of large visual chapters. Full-bleed water, dark-to-light transitions, alternating editorial splits, product media and muted video create a cinematic pace. Its strongest sections explain one idea per viewport. Its weaknesses are repeated 50/50 layouts, long generic copy, too many looping videos, fragmented calls to action and technical claims that are not always visibly tied to evidence.

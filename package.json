@@ -11,6 +11,7 @@
     "build": "vinext build",
     "start": "node --import ./scripts/sites-env.mjs ./node_modules/wrangler/bin/wrangler.js dev --config dist/server/wrangler.json --local --persist-to .wrangler/state --ip 127.0.0.1 --inspector-port 0",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
+    "qa:layout": "node scripts/layout-qa.mjs",
     "db:generate": "drizzle-kit generate"
   },
   "dependencies": {
@@ -64,7 +65,8 @@
     "typescript": "5.9.3",
     "vinext": "1.0.0-beta.5",
     "vite": "8.0.13",
-    "wrangler": "4.92.0"
+    "wrangler": "4.92.0",
+    "ws": "^8.21.3"
   },
   "type": "module"
 }
