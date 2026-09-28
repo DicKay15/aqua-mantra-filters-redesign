@@ -12,14 +12,15 @@ A complete multi-page redesign concept for [Aqua Mantra Filters](https://aquaman
 - Accessible navigation, responsive layouts, form validation/success/error states, loading skeletons and reduced-motion fallbacks.
 - Full discovery, IA, PRD, SEO, media, checklist, feedback and launch-audit documentation in [`docs/`](docs/).
 
-## Live review builds
+## Hosting
 
-Both versions are hosted so they can be compared side by side. Neither is approved for public launch; both are `noindex` with `Disallow: /`.
+The current V3 build is deployed to Vercel. The root and `www` custom domains are assigned to the Vercel project and will activate after the DNS records are updated at the current provider.
 
 | Version | URL | Git |
 |---|---|---|
-| **Current** (rebuilt hero and interaction layer) | https://aqua-mantra-redesign.pages.dev | `main` |
-| **Before this pass** (as first delivered) | https://aqua-mantra-v1.pages.dev | commit `1d27f6e` |
+| **V3 production deployment** | https://aqua-mantra-filters.vercel.app | `redesign-v3-premium` |
+| **Cloudflare Pages fallback** | https://aqua-mantra-redesign.pages.dev | `redesign-v3-premium` |
+| **V1 archive** | https://aqua-mantra-v1.pages.dev | commit `1d27f6e` |
 
 The `v1` deployment is that commit built as-is. The only differences from the commit are build plumbing needed to produce a static export (`output: "export"`, `generateStaticParams`, `force-static` on the two metadata routes, and its own `siteUrl`). No design, copy or markup was changed.
 
@@ -28,14 +29,14 @@ scripts/deploy-static.sh          # build and publish
 SITE_LIVE=1 scripts/deploy-static.sh   # same build, indexable
 ```
 
-The deployable artifact is a static export: `STATIC_EXPORT=1 npx next build` writes `out/`. `npm run dev` still uses the bundled vinext dev server.
+The deployable artifact is a static export: `SITE_LIVE=1 STATIC_EXPORT=1 npx next build --webpack` writes `out/`. `vercel.json` contains the repeatable Vercel build and security-header configuration. `npm run dev` still uses the bundled vinext dev server.
 
-GitHub Pages was requested but cannot serve this repository: it is private and the account's plan does not include Pages for private repositories. Publishing there would require making the repository public, which would expose the client's contact details and installation photographs.
+The GitHub repository is public at https://github.com/DicKay15/aqua-mantra-filters-redesign.
 
 ## Review-build safeguards
 
 - The consultation form demonstrates behaviour but sends no data until an approved destination and privacy process are connected.
-- The publicly accessible stakeholder-review build is `noindex` and disallowed in `robots.txt`; it is not approved for search indexing or commercial launch.
+- The Vercel production deployment is indexable and publishes canonical URLs for `https://aquamantrafilters.com.au`; the custom-domain DNS cutover is still pending.
 - Certification, licence, product-performance, warranty, legal and city-coverage details remain clearly marked for client verification.
 - Generated lifestyle images are illustrative; real Aqua Mantra installation photos are used as proof.
 

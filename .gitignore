@@ -54,3 +54,4 @@ next-env.d.ts
 # Local editor/preview config and TS build cache
 /.claude/
 tsconfig.tsbuildinfo
+.env*.local
