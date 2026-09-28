@@ -1,4 +1,4 @@
-export const siteUrl = "https://aqua-mantra-filters-v2.dhrumil-kherde.workers.dev";
+export const siteUrl = "https://aquamantrafilters.com.au";
 
 export const contact = {
   phoneDisplay: "0450 864 647",
