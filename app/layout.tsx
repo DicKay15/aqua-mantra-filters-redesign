@@ -3,6 +3,7 @@ import "@fontsource-variable/manrope";
 import "@fontsource-variable/newsreader";
 import "./globals.css";
 import "./v2.css";
+import "./premium.css";
 import { Footer, Header } from "@/components/site/SiteChrome";
 import { JsonLd } from "@/components/site/Blocks";
 import { siteUrl } from "@/lib/site";

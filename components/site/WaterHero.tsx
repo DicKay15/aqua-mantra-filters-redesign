@@ -3,13 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { concerns } from "@/lib/site";
 
 export function WaterHero() {
   const mountRef = useRef<HTMLDivElement>(null);
   const [webgl, setWebgl] = useState(false);
-  const [concern, setConcern] = useState<string | null>(null);
-  const active = concerns.find(item => item.id === concern);
 
   useEffect(() => {
     const mount = mountRef.current;
@@ -161,56 +158,25 @@ export function WaterHero() {
     };
   }, []);
 
-  const consultHref = concern ? `/contact-us/?concern=${concern}` : "/contact-us/";
-
   return (
     <section className={`water-hero${webgl ? " webgl-ready" : ""}`}>
       <div className="hero-layout">
         <div className="hero-copy">
-          <p className="eyebrow">Whole-house filtration · Perth, Sydney, Adelaide</p>
-          <h1>Better water starts with the right questions.</h1>
+          <p className="eyebrow">Whole-home water filtration</p>
+          <h1>Better water.<br />Every tap.</h1>
           <p className="hero-intro">
-            We help homeowners choose, install and maintain a whole-house filtration system suited to
-            the property, not to a standard package.
+            Supplied and installed across Perth, Sydney and Adelaide.
           </p>
-
-          <fieldset className="concern-picker">
-            <legend>What are you noticing at home?</legend>
-            <div className="concern-options">
-              {concerns.map(item => (
-                <label key={item.id} className={concern === item.id ? "is-active" : undefined}>
-                  <input
-                    type="radio"
-                    name="concern"
-                    value={item.id}
-                    checked={concern === item.id}
-                    onChange={() => setConcern(item.id)}
-                  />
-                  <span className="concern-index">{item.n}</span>
-                  <span className="concern-label">{item.label}</span>
-                </label>
-              ))}
-            </div>
-            <p className="concern-answer" aria-live="polite">
-              {active ? active.answer : "Choose one and we will tell you where the conversation actually starts."}
-            </p>
-          </fieldset>
-
           <div className="button-row">
-            <Link className="button button-primary" href={consultHref}>
-              Book a free consultation
+            <Link className="button button-primary" href="/contact-us/">
+              Find my system
             </Link>
-            <Link className="button button-secondary" href="/products/">
-              Compare systems
-            </Link>
+            <Link className="hero-text-link" href="/products/">Explore systems</Link>
           </div>
-          <p className="hero-note">Supply · professional installation · ongoing filter support</p>
         </div>
       </div>
 
       <div className="hero-frame">
-        <div className="hero-water" ref={mountRef} aria-hidden="true" />
-        <div className="hero-water-fallback" aria-hidden="true" />
         <figure className="hero-proof">
           <Image
             src="/images/installations/install-18.jpg"
@@ -220,8 +186,23 @@ export function WaterHero() {
             priority
             sizes="(max-width: 1050px) 100vw, 42vw"
           />
-          <figcaption>An installed Aqua Mantra system. Property details pending client confirmation.</figcaption>
         </figure>
+      </div>
+
+      <div className="hero-flow" aria-label="Water flows from the mains through the filtration system and throughout the home">
+        <div className="hero-water" ref={mountRef} aria-hidden="true" />
+        <div className="hero-water-fallback" aria-hidden="true" />
+        <svg viewBox="0 0 760 82" role="img" aria-hidden="true">
+          <path className="flow-pipe" d="M42 41H270C301 41 303 16 334 16H426C457 16 459 41 490 41H718" />
+          <path className="flow-water" d="M42 41H270C301 41 303 16 334 16H426C457 16 459 41 490 41H718" />
+          <g className="flow-unit" transform="translate(345 4)">
+            <rect width="70" height="42" rx="3" />
+            <circle cx="15" cy="8" r="5" /><circle cx="35" cy="8" r="5" /><circle cx="55" cy="8" r="5" />
+          </g>
+          <circle className="flow-node" cx="42" cy="41" r="5" />
+          <circle className="flow-node" cx="718" cy="41" r="5" />
+        </svg>
+        <div className="flow-labels" aria-hidden="true"><span>Mains</span><span>Filtered</span><span>Every tap</span></div>
       </div>
     </section>
   );
