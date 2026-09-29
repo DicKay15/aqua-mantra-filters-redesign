@@ -3,8 +3,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 type Stage = {
-  n: string;
   key: string;
+  code: string;
   title: string;
   text: string;
   media: string;
@@ -12,29 +12,29 @@ type Stage = {
 
 const stages: Stage[] = [
   {
-    n: "01",
     key: "sediment",
+    code: "APF",
     title: "Pleated sediment stage",
     text: "The first cartridge is a pleated element. Its job is to hold back visible sediment so the carbon stages behind it are not asked to do work they were not designed for.",
     media: "Pleated element",
   },
   {
-    n: "02",
     key: "scale",
+    code: "SCF",
     title: "Scale carbon stage",
     text: "The middle cartridge combines carbon treatment with scale-management media. What it is rated to reduce, and by how much, stays subject to the product documentation.",
     media: "Carbon block with scale media",
   },
   {
-    n: "03",
     key: "carbon",
+    code: "CCF",
     title: "Coconut carbon stage",
     text: "The final carbon stage is where taste and odour treatment sits, within the limits its own verified evidence supports.",
     media: "Coconut shell carbon block",
   },
   {
-    n: "04",
     key: "home",
+    code: "Home",
     title: "Whole-home distribution",
     text: "Treated water rejoins the home's normal plumbing and continues to every tap, shower and connected appliance. Nothing is fitted at the point of use.",
     media: "Existing house plumbing",
@@ -188,7 +188,7 @@ export function FiltrationStory() {
                 height="106"
                 fill={`url(#${["pleats", "granules", "carbonbands"][i]})`}
               />
-              <text className="cartridge-index" x={x + 48} y="222">{stages[i].n}</text>
+              <text className="cartridge-index" x={x + 48} y="222">{stages[i].code}</text>
             </g>
           ))}
 
@@ -212,7 +212,7 @@ export function FiltrationStory() {
             className={index === activeIndex ? "is-active" : undefined}
             onClick={() => setActiveIndex(index)}
           >
-            <span className="stage-tab-index">{stage.n}</span>
+            <span className="stage-tab-index list-dot" aria-hidden="true" />
             <span className="stage-tab-label">{stage.title}</span>
           </button>
         ))}

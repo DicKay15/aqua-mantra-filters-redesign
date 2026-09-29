@@ -79,7 +79,7 @@ export function AquaHomeV3() {
         <div className="shell premium-heading-row"><SectionHeading eyebrow="Before you choose" title="Understand the water and the options." /><Link className="premium-link" href="/guides">All water guides <ArrowUpRight /></Link></div>
         <div className="shell premium-guide-layout">
           <Link className="premium-guide-feature" href={`/guides/${guides[0].slug}`}><div><Image src={guides[0].image} alt="" fill sizes="(max-width: 800px) 100vw, 52vw" /></div><span>{guides[0].location}</span><h3>{guides[0].title}</h3><p>{guides[0].summary}</p></Link>
-          <div className="premium-guide-list">{guides.slice(1).map((guide, index) => <Link href={`/guides/${guide.slug}`} key={guide.slug}><span>0{index + 2} · {guide.location}</span><h3>{guide.title}</h3><ArrowUpRight /></Link>)}</div>
+          <div className="premium-guide-list">{guides.slice(1).map(guide => <Link href={`/guides/${guide.slug}`} key={guide.slug}><span><i className="list-dot" aria-hidden="true" />{guide.location}</span><h3>{guide.title}</h3><ArrowUpRight /></Link>)}</div>
         </div>
       </MotionSection>
 

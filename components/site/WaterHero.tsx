@@ -1,12 +1,56 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowLeft, ArrowRight, Pause, Play } from "@phosphor-icons/react";
+
+const heroSlides = [
+  {
+    src: "/images/installations/install-18.jpg",
+    alt: "A completed Aqua Mantra whole-house filtration unit with three pressure gauges and copper pipework installed beside a home.",
+    label: "Complete whole-house unit",
+    position: "center 36%",
+  },
+  {
+    src: "/images/installations/install-1-alt.jpg",
+    alt: "Three Aqua Mantra replacement cartridges: coconut carbon, scale carbon and antibacterial pleated filters.",
+    label: "APF, SCF and CCF cartridges",
+    position: "center 48%",
+  },
+  {
+    src: "/images/installations/install-2.jpg",
+    alt: "Aqua Mantra three-stage housings, enclosure and installation hardware arranged beside the open filtration unit.",
+    label: "Three-stage system before installation",
+    position: "center 58%",
+  },
+] as const;
 
 export function WaterHero() {
   const mountRef = useRef<HTMLDivElement>(null);
   const [webgl, setWebgl] = useState(false);
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [slideshowPaused, setSlideshowPaused] = useState(false);
+  const [interactionPaused, setInteractionPaused] = useState(false);
+  const [reduceMotion, setReduceMotion] = useState(false);
+
+  const moveSlide = useCallback((direction: number) => {
+    setActiveSlide(current => (current + direction + heroSlides.length) % heroSlides.length);
+  }, []);
+
+  useEffect(() => {
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setReduceMotion(media.matches);
+    update();
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, []);
+
+  useEffect(() => {
+    if (slideshowPaused || interactionPaused || reduceMotion) return;
+    const timer = window.setInterval(() => moveSlide(1), 5200);
+    return () => window.clearInterval(timer);
+  }, [interactionPaused, moveSlide, reduceMotion, slideshowPaused]);
 
   useEffect(() => {
     const mount = mountRef.current;
@@ -176,17 +220,61 @@ export function WaterHero() {
         </div>
       </div>
 
-      <div className="hero-frame">
-        <figure className="hero-proof">
-          <Image
-            src="/images/installations/install-18.jpg"
-            alt="An installed Aqua Mantra whole-house filtration enclosure with three pressure gauges and copper pipework, mounted in a garden bed beside a home."
-            width={675}
-            height={1200}
-            priority
-            sizes="(max-width: 1050px) 100vw, 42vw"
-          />
-        </figure>
+      <div
+        className="hero-frame"
+        aria-roledescription="carousel"
+        aria-label="Aqua Mantra systems and cartridges"
+        onMouseEnter={() => setInteractionPaused(true)}
+        onMouseLeave={() => setInteractionPaused(false)}
+        onFocusCapture={() => setInteractionPaused(true)}
+        onBlurCapture={(event) => {
+          if (!event.currentTarget.contains(event.relatedTarget)) setInteractionPaused(false);
+        }}
+      >
+        <div className="hero-slides" aria-live="polite">
+          {heroSlides.map((slide, index) => (
+            <figure
+              className={`hero-proof${index === activeSlide ? " is-active" : ""}`}
+              key={slide.src}
+              aria-hidden={index !== activeSlide}
+            >
+              <Image
+                src={slide.src}
+                alt={index === activeSlide ? slide.alt : ""}
+                fill
+                priority={index === 0}
+                sizes="(max-width: 1050px) 100vw, 56vw"
+                style={{ objectPosition: slide.position }}
+              />
+              <figcaption>{slide.label}</figcaption>
+            </figure>
+          ))}
+        </div>
+        <div className="hero-carousel-controls">
+          <button type="button" onClick={() => moveSlide(-1)} aria-label="Previous image"><ArrowLeft /></button>
+          <div className="hero-carousel-dots" role="group" aria-label="Choose a hero image">
+            {heroSlides.map((slide, index) => (
+              <button
+                type="button"
+                className={index === activeSlide ? "is-active" : undefined}
+                key={slide.src}
+                onClick={() => setActiveSlide(index)}
+                aria-label={`Show ${slide.label}`}
+                aria-current={index === activeSlide ? "true" : undefined}
+              />
+            ))}
+          </div>
+          {!reduceMotion && (
+            <button
+              type="button"
+              onClick={() => setSlideshowPaused(current => !current)}
+              aria-label={slideshowPaused ? "Play slideshow" : "Pause slideshow"}
+            >
+              {slideshowPaused ? <Play /> : <Pause />}
+            </button>
+          )}
+          <button type="button" onClick={() => moveSlide(1)} aria-label="Next image"><ArrowRight /></button>
+        </div>
       </div>
 
       <div className="hero-flow" aria-label="Water flows from the mains through the filtration system and throughout the home">

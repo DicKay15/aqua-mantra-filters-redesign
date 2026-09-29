@@ -63,7 +63,7 @@ export function ProductSelector() {
             key={system.id}
             onClick={() => setSelected(index)}
           >
-            <span>0{index + 1}</span>{system.tab}
+            <span className="list-dot" aria-hidden="true" />{system.tab}
           </button>
         ))}
       </div>
@@ -140,7 +140,7 @@ export function InstallationDocumentary() {
         <div className="documentary-tabs" role="tablist" aria-label="Installation sequence">
           {installationSteps.map((item, index) => (
             <button type="button" role="tab" aria-selected={selected === index} key={item.label} onClick={() => setSelected(index)}>
-              <span>0{index + 1}</span>{item.label}
+              <span className="list-dot" aria-hidden="true" />{item.label}
             </button>
           ))}
         </div>
